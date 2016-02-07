@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+
+</head>
+<body>
+
+    @if (IsSectionDefined("Header"))
+    {
+        @RenderSection("Header")
+    }
+    else
+    {
+        if (ViewBag.ShowLoginForm == null)
+        {
+            ViewBag.ShowLoginForm = true;
+        }
+        @Html.Partial("_Header")
+    }
+
+   @if (TempData.ContainsKey("MessageType"))
+   {
+        <div class="alert alert-@TempData["MessageType"]">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>@TempData["StrongResultMessage"]</strong>@TempData["ResultMessage"]
+        </div>
+    }    
+
+    @if (IsSectionDefined("Body"))
+    {
+        @RenderSection("Body")
+    }
+    else
+    {
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3">
+                    @if (IsSectionDefined("Left"))
+                    {
+                        @RenderSection("Left")
+                    }
+                    else if (Request.IsAuthenticated)
+                    {                        
+                        @Html.Action("LoadProfile", "User", new { username = User.Identity.Name})
+                        if (@TempData["ViewedUser"] != null && !User.Identity.Name.Equals(TempData["ViewedUser"]))
+                        {
+                            @Html.Action("LoadProfile", "User", new { username = @TempData["ViewedUser"]})
+                        }
+                    }
+                </div>
+                <div class="col-md-9">
+                    @if (IsSectionDefined("Middle"))
+                    {
+                        @RenderSection("Middle")
+                    }
+                </div>
+            </div>
+        </div>
+    }
+    @RenderBody()
+
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

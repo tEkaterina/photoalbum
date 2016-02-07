@@ -1,0 +1,21 @@
+﻿@model PhotoAlbum.Models.LoginUserModel
+@using PhotoAlbum.Infrastructure
+
+<div class="col-md-7 col-md-offset-1 login">
+    @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "form-inline", role = "form"}))
+    {
+        <div class="form-group">
+            @Html.LabelFor(model => model.Username, "Логин")
+            @Html.TextBoxFor(model => model.Username, new { @class = "form-control", placeholder = "Имя пользователя"})
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Password)
+            @Html.PasswordFor(model => model.Password, new { @class = "form-control", placeholder = "Пароль"})
+        </div>
+        <div class="form-group">
+            @Html.Button("Вход", new { @type="submit", @class = "btn-sigin btn-sm"})
+        </div>
+        @Html.Button("Регистрация", @Url.Action("Register", "Account"),
+                FormMethod.Get, new { @class = "form-group btn btn-info btn-sm" })
+    }
+</div>

@@ -1,0 +1,62 @@
+﻿@model PhotoAlbum.Models.AddPictureModel
+
+@{
+    ViewBag.Title = "Добавить новое фото";
+}
+
+@helper CreateAddPictureFormGroup (MvcHtmlString label, params MvcHtmlString[] contents){
+    <div class="form-group row">
+        <div class="col-md-3 col-md-offset-1 register-lable">
+            @label
+        </div>
+        <div class="col-md-6 col-md-offset-1">
+            @if (contents != null)
+            {
+                foreach(var content in contents)
+                {
+                    @content
+                }
+            }
+        </div>
+    </div>
+}
+
+@section Middle {
+    <div class="container add-photo center">
+        @using (Html.BeginForm("AddPicture", "PhotoAlbum", FormMethod.Post, 
+            new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            <fieldset style="margin: 15px 10px 15px 10px">
+                <legend style="font-size: 30px; text-align:left;">Новое фото</legend>            
+                @CreateAddPictureFormGroup(
+                    null,
+                    @Html.TextBoxFor(model => model.ImageFile, 
+                        new { type="file", accept="image/*", title="Добавить новое фото", required="required"}))
+        
+                @CreateAddPictureFormGroup(
+                    @Html.LabelFor(model => model.Name, new { @class="control-label"}),
+                    @Html.TextBoxFor(model => model.Name, new { @class="form-control", placeholder="Название" }),
+                    @Html.ValidationMessageFor(model => model.Name, null, new { @class="error-message" }))
+
+                @CreateAddPictureFormGroup(
+                    @Html.LabelFor(model => model.Description, new { @class="control-label"}),
+                    @Html.TextAreaFor(model => model.Description, new { @class="form-control", placeholder="Описание", rows="5" }),
+                    @Html.ValidationMessageFor(model => model.Description, null, new { @class="error-message" }))
+
+                <div class="form-group">
+                    <div class="center register-btn">
+                        @Html.Button("Добавить", new { @class = "btn btn-success"} )
+                        <a href="@Request.UrlReferrer"><div class="btn btn-danger">Отмена</div></a>
+                    </div>
+                </div>
+            </fieldset>
+        }
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

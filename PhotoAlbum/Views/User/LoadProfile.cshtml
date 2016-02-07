@@ -1,0 +1,31 @@
+﻿@model PhotoAlbum.Models.UserProfileModel
+
+@helper CreateMenuBtn(string text, string action, string controller, object routeValues = null)
+{
+    <form>
+        <div class="col-md-10 col-md-offset-1">
+            @Html.Button(text, @Url.Action(action, controller, routeValues), FormMethod.Post, new { @class="btn-user-menu", width="100%" })
+        </div>
+    </form>
+}
+
+<div class="container user-profile">
+    <div class="avatar">
+        <img src="data:image/jpeg;base64,@Model.Avatar"/><label style="margin-left: 20px;">@Model.Username</label>
+    </div>
+    <div class="row" style="text-align: center">
+        @using (Html.BeginForm())
+        {  
+            @Html.TextBox("username", @Model.Username, new { hidden = "hidden" })
+            if (User.Identity.Name == Model.Username || User.IsInRole("Admin"))
+            {
+                @CreateMenuBtn("Редактировать профиль", "LoadProfileEditor", "User" );
+            }            
+            @CreateMenuBtn("Мои фотографии", "ShowPhotoAlbum", "PhotoAlbum", new { @Model.Username })
+            if (User.Identity.Name == Model.Username)
+            {
+                @CreateMenuBtn("Выйти", "Logout", "Account");
+            }
+        }
+    </div>
+</div>

@@ -1,0 +1,11 @@
+C:\Users\Panda\Desktop\PhotoAlbum\ORM\bin\Debug\ORM.dll.config
+C:\Users\Panda\Desktop\PhotoAlbum\ORM\bin\Debug\ORM.dll
+C:\Users\Panda\Desktop\PhotoAlbum\ORM\bin\Debug\ORM.pdb
+C:\Users\Panda\Desktop\PhotoAlbum\ORM\bin\Debug\EntityFramework.dll
+C:\Users\Panda\Desktop\PhotoAlbum\ORM\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Panda\Desktop\PhotoAlbum\ORM\bin\Debug\EntityFramework.xml
+C:\Users\Panda\Desktop\PhotoAlbum\ORM\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Panda\Desktop\PhotoAlbum\ORM\obj\Debug\ORM.Properties.Resources.resources
+C:\Users\Panda\Desktop\PhotoAlbum\ORM\obj\Debug\ORM.csproj.GenerateResource.Cache
+C:\Users\Panda\Desktop\PhotoAlbum\ORM\obj\Debug\ORM.dll
+C:\Users\Panda\Desktop\PhotoAlbum\ORM\obj\Debug\ORM.pdb

@@ -1,0 +1,11 @@
+﻿<div class="col-md-3 col-sm-offset-5 login">    
+    <form class = "form-inline", role = "form">    
+        <div class="form-group">
+            @Html.TextBox("Search", null, new { @class = "form-control", placeholder = "Поиск.."})
+        </div>
+        <div class="form-group">
+            @Html.Button("Поиск", @Url.Action("Home", "Search"),
+                FormMethod.Get, new { @class = "btn-sigin btn-sm" })
+        </div>
+    </form>
+</div>

@@ -1,0 +1,60 @@
+﻿@using PhotoAlbum.Models
+@model int
+
+@{
+    ViewBag.Title = "Фотоальбом";
+    
+    int pictureOnPageCount = ViewBag.PictureOnPageCount;
+    int userId = Model;
+    
+    AjaxOptions ajaxOptions = new AjaxOptions
+    {
+        UpdateTargetId = "photoalbum"
+    };
+}
+
+@section Middle{
+    <div class="container photoalbum">
+        <fieldset>
+            <form id="photoalbumform"></form>
+            <legend>
+                @if (TempData["ViewedUser"] == null || User.Identity.Name.Equals(TempData["ViewedUser"]))
+                {
+                    <button class="btn-photoalbum btn" type="submit" formaction="@Url.Action("AddPicture", "PhotoAlbum")" form="photoalbumform">
+                        <img src="~/Content/images/plus.png" width="18" style="vertical-align: middle;"/>
+                    </button>
+                }
+            </legend>
+            <div class="photoalbum" id="photoalbum">
+                @Html.Action("AlbumPage", new { userId, count = pictureOnPageCount })
+            </div>
+        </fieldset>
+
+        @if (ViewBag.PageCount > 1)
+        {
+            <div id="ajaxForm">            
+                <noscript>        
+                    <form>
+                </noscript>            
+                <div class="center">
+                    @Html.Hidden("userId", userId)
+                    @Html.Hidden("count", pictureOnPageCount)
+                    @Html.DropDownList("page", new SelectList(
+                        Enumerable.Range(1, (int)ViewBag.PageCount)))
+                    <button type="submit">Перейти</button>
+                </div>
+            </div>
+            <script type="text/javascript">
+                var ajax = document.getElementById('ajaxForm');
+                ajax.innerHTML = '<form action="/PhotoAlbum/AlbumPage" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#photoalbum" id="form0" method="post">' + ajax.innerHTML;
+            </script> 
+        }   
+            
+    </div>
+}
+
+
+
+
+@Scripts.Render("~/scripts/jquery-1.9.1.min.js")
+@Scripts.Render("~/scripts/jquery.unobtrusive-ajax.min.js")

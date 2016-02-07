@@ -1,0 +1,18 @@
+﻿<div class="container-fluid menu">
+    <div class="row">
+        <div class="col-sm-4">
+            <a href="@Url.Action("Index", "Home")"><img src="~/Content/images/logo.png" height="55" /></a>
+        </div>
+        @if (!Request.IsAuthenticated)
+        {
+            if (ViewBag.ShowLoginForm != null && ViewBag.ShowLoginForm == true)
+            {
+                @Html.Partial("_HeaderLoginForm")
+            }
+        }
+        else
+        {
+            @Html.Partial("_HeaderLogedUser")
+        }
+    </div>
+</div>

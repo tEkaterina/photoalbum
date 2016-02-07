@@ -1,0 +1,42 @@
+﻿@using PhotoAlbum.Models;
+@model IEnumerable<PictureProfileModel>
+
+@helper CreatePhotoAlbumView()
+{
+    <div class="row">
+        @{
+            string rotadedClass = "right";
+            int profilesCount = Model.Count();
+        }
+        @if (profilesCount > 0)
+        {
+            foreach (var profile in Model)
+            {
+                <div class="item">
+                    <div class="well">
+                        <a href="@Url.Action("ShowPictureByIndex", "PhotoAlbum", new { index = profile.Index, userId = profile.UserId })">
+                            <div class="picture-preview @rotadedClass-rotated">
+                                <img src="data:image/jpeg;base64,@profile.Image" />
+                                <label>@profile.Name</label>
+                            </div>
+                        </a>
+                    </div>       
+                </div>
+        
+                if (rotadedClass == "right")
+                {
+                    rotadedClass = "left";
+                }
+                else
+                {
+                    rotadedClass = "right";
+                }
+            }
+        }
+        else
+        {
+            <h2 style="font-family: HTC hand;">Альбом пуст :(</h2>
+        }
+    </div>
+}
+@CreatePhotoAlbumView()

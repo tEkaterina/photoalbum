@@ -1,0 +1,11 @@
+﻿@model PhotoAlbum.Models.PictureProfileModel
+
+@if (!string.IsNullOrEmpty(Model.Description))
+{
+    <div class="col-md-12">
+        <div class="container picture-description">
+            <p>Описание:</p>
+            @Model.Description
+        </div>
+    </div>
+}

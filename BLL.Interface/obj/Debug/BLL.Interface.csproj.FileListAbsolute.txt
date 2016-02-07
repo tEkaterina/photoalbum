@@ -1,0 +1,9 @@
+C:\Users\Panda\Desktop\PhotoAlbum\BLL.Interface\bin\Debug\BLL.Interface.dll
+C:\Users\Panda\Desktop\PhotoAlbum\BLL.Interface\bin\Debug\BLL.Interface.pdb
+C:\Users\Panda\Desktop\PhotoAlbum\BLL.Interface\bin\Debug\DAL.Interface.dll
+C:\Users\Panda\Desktop\PhotoAlbum\BLL.Interface\bin\Debug\EntityFramework.dll
+C:\Users\Panda\Desktop\PhotoAlbum\BLL.Interface\bin\Debug\DAL.Interface.pdb
+C:\Users\Panda\Desktop\PhotoAlbum\BLL.Interface\bin\Debug\EntityFramework.xml
+C:\Users\Panda\Desktop\PhotoAlbum\BLL.Interface\obj\Debug\BLL.Interface.csprojResolveAssemblyReference.cache
+C:\Users\Panda\Desktop\PhotoAlbum\BLL.Interface\obj\Debug\BLL.Interface.dll
+C:\Users\Panda\Desktop\PhotoAlbum\BLL.Interface\obj\Debug\BLL.Interface.pdb

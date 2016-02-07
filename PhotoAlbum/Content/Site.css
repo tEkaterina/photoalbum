@@ -1,0 +1,324 @@
+﻿@font-face {
+    font-family: Blogger Sans;
+    src: url(../fonts/8848.ttf);
+}
+
+@font-face {
+    font-family: HTC hand;
+    src: url(../fonts/8645.ttf);
+}
+
+body {
+	background: #f1e6bc url(images/body-bg.jpg);
+	height: 100%;
+}
+
+.menu {
+    background-color: #fbd08b;
+    box-shadow: 0px 1px 0px #b23615;
+}
+
+.login {
+    padding: 10px 10px 5px 5px;
+}
+
+div.center {
+    text-align: center;
+}
+
+.center.register-btn {
+    margin-top: 40px;
+}
+
+.center.login-btn {
+    margin-top: 5px;
+    font-size: 16px;
+}
+
+.container {
+    background-color: #ffde9b;
+    border-color: #b23615;
+    border: 2px thick;
+    border-radius: 10px;
+
+    box-shadow: 5px 5px 5px #8e6e57;
+}
+
+.container.default {
+    margin-top: 40px;
+    padding: 20px 3px 10px 3px;
+    text-align: center;
+}
+
+.container.login {
+    width: 60%;
+    margin-top: 40px;
+    padding: 20px 0 10px 0;
+}
+
+.container.user-profile {
+    background-color: white;
+    box-shadow: 5px 5px 5px #beb9a8;
+    text-align:center;
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.container.profile-edit {
+    background-color: white;
+    box-shadow: 5px 5px 5px #beb9a8;
+    text-align:center;
+    padding: 10px 5px 10px 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.container.picture {
+    background-color: #fcf6c7;
+    box-shadow: 5px 5px 5px #b9af8f;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.container.picture img {
+    width: 100%;
+    border: solid;
+    border-width: 1px;
+}
+
+.container.picture .picture-box {
+    width: 100%;
+
+    border: solid;
+    border-width: 1px;
+
+    background-color: white;
+
+    padding: 5px 5px 5px 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    font-family: Blogger Sans;
+}
+
+.picture-box .name{
+    font-size: 35px;
+    text-align: center;
+}
+
+.picture-box .author{
+    font-size: 22px;
+    text-align: right;
+}
+
+.picture-box .date{
+    font-size: 15px;
+    text-align: right;
+}
+
+.container.add-photo,
+.container.photoalbum {
+    background-color: #fcf6c7;
+    box-shadow: 5px 5px 5px #b9af8f;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.add-photo,
+.photoalbum {
+    display: block;
+
+    margin: 0;
+    padding-bottom: 20px;
+}
+
+
+.photoalbum legend {
+    font-family: HTC hand; 
+    color: #000000;
+    font-weight:bold;
+    padding-top: 20px;
+}
+
+.photoalbum *, *:before, *:after {
+    box-sizing:  border-box !important;
+}
+
+.photoalbum .row {
+    -moz-column-width: 18em;
+    -webkit-column-width: 18em;
+    -moz-column-gap: 1em;
+    -webkit-column-gap:1em;
+}
+
+.photoalbum .item {
+    display: inline-block;
+    padding:  0;
+    width:  100%; 
+}
+
+.photoalbum .well {
+    margin: 10px 10px 10px 10px;
+    padding: 0;
+    position:relative;
+    display: block;
+}
+
+.photoalbum .picture-preview {
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+
+    background-color: #ffffff;
+    border: solid;
+    border-width: 1px;  
+    
+    transition: top 2s ease-in-out 0.5s;
+}
+
+.picture-preview > img {
+    width: 100%;
+    border: solid;
+    border-width: 1px;
+}
+
+.photoalbum .picture-preview.left-rotated:hover {
+    transform: rotate(-2deg);
+    box-shadow: 5px 5px 5px #adaba3;
+}
+
+.photoalbum .picture-preview.right-rotated:hover {
+    transform: rotate(2deg);
+    box-shadow: 5px 5px 5px #adaba3;
+}
+
+.well a{
+    color: black !important;
+    border-color: black !important;
+}
+
+.welcom h1{
+    font-family: HTC hand; 
+    color: #a64333; 
+    text-align: center;
+}
+
+
+.btn-photoalbum {
+    font-size: 5px !important;
+    color: #fff;
+    
+    background-color: #50c3d3;
+
+    border-color: #a64333;
+    border: 1px none;
+    border-radius: 20px;
+    
+    margin: 5px 5px 5px 5px !important;
+    padding: 2px 2px 2px 2px !important;
+}
+
+.btn-user-menu {
+    width: 100%;
+    color: #922507;
+    background-color: #fbd08b;
+    border: 0 none;
+    
+    font-family: HTC hand;
+    font-size: 18px;
+
+    border-radius: 4px;
+    margin: 5px 5px 5px 5px;
+}
+
+.btn-user-menu:hover, 
+.btn-user-menu:focus, 
+.btn-user-menu:active,
+.btn-user-menu:visited, 
+.btn-user-menu.active {
+    color: #922507;
+    background-color: #e5b15f;
+    border: 0 none;
+}
+
+.btn-sigin {
+  color: #fff;
+  background-color: #a64333;
+  border-color: #a64333;
+  border: 1px none;
+}
+
+.btn-sigin:hover, 
+.btn-sigin:focus, 
+.btn-sigin:active,
+.btn-primary:visited, 
+.btn-sigin.active {
+    color: #fff;
+    background-color: #9c3114;
+    border-color: #9c3114;
+    border: 0 none;
+}
+
+.register-lable {    
+    font-family: HTC hand;
+    font-size: 22px;
+    color: #670000;
+    text-align:left;
+}
+
+.login-lable {    
+    font-family: HTC hand;
+    font-size: 20px;
+    color: #670000;
+    text-align:left;
+}
+
+.error-message {
+    color: red;
+    font-family: 'Comic Sans MS';
+    font-style: italic;
+    font-size: small;
+}
+
+.error-message > span {
+    padding: 0 0 0 50px;
+}
+
+.avatar {
+    font-family: HTC hand;
+    color: #670000;
+    font-size: 30px;
+}
+
+.avatar > img {    
+    border: solid;
+    border-width: 1px;
+    transform: rotate(-3deg);
+    width:130px; 
+    height:130px;
+}
+
+.container.picture-description {
+    background-color: white;
+
+    font-family: Blogger Sans;
+    font-size: 17px;
+
+    box-shadow: none;
+
+    width: 100%;
+    border: 1px solid black;
+
+    margin-bottom: 15px;
+}
+
+.picture-description p{
+    font-size: 20px;
+    font-weight: 600;
+    padding-left: 50px;
+    color: #0D278C;
+}

@@ -1,0 +1,10 @@
+﻿@model PhotoAlbum.Models.PictureProfileModel
+
+<div class="col-md-12">
+    <div class="picture-box">
+        <img src="data:image/jpeg;base64, @Model.Image" />
+        <p class="name"><label>@Model.Name</label></p>
+        <p class="author"><label>@TempData["ViewedUser"]</label></p>
+        <p class="date"><label>@Model.LoadingDate</label></p>
+    </div>
+</div>

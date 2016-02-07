@@ -1,0 +1,4 @@
+C:\Users\Panda\Desktop\PhotoAlbum\EntityMapper\bin\Debug\EntityMapper.dll
+C:\Users\Panda\Desktop\PhotoAlbum\EntityMapper\bin\Debug\EntityMapper.pdb
+C:\Users\Panda\Desktop\PhotoAlbum\EntityMapper\obj\Debug\EntityMapper.dll
+C:\Users\Panda\Desktop\PhotoAlbum\EntityMapper\obj\Debug\EntityMapper.pdb

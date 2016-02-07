@@ -1,0 +1,76 @@
+﻿@model PhotoAlbum.Models.RegisterUserModel
+
+@{
+    ViewBag.Title = "Регистрация";
+    ViewBag.ShowLoginForm = false;
+}
+
+@helper CreateRegisterFormGroup(MvcHtmlString label, params MvcHtmlString[] contents)
+{
+    <div class="form-group row">
+        <div class="col-md-3 col-md-offset-1 register-lable">
+            @label
+        </div>
+        <div class="col-md-6 col-md-offset-1">
+            @if (contents != null)
+            {
+                foreach(var content in contents)
+                {
+                    @content
+                }
+            }
+        </div>
+    </div>
+}
+
+@section Body {
+    <div class="container default">
+        @using (Html.BeginForm("Register", "Account", FormMethod.Post, 
+            new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            @CreateRegisterFormGroup(
+                @Html.LabelFor(model => model.Username, new { @class = "control-label" }),
+                @Html.TextBoxFor(model => model.Username, new { @class="form-control", @placeholder="Имя пользователя" }),
+                @Html.ValidationMessageFor(model => model.Username, null, new { @class = "error-message" })
+            )
+            
+            @CreateRegisterFormGroup(
+                @Html.LabelFor(model => model.Email, new { @class = "control-label" }),
+                @Html.TextBoxFor(model => model.Email, new { @class="form-control", @type="email", @placeholder="Email" }),
+                @Html.ValidationMessageFor(model => model.Email, null, new { @class = "error-message"})
+            )
+
+            @CreateRegisterFormGroup(
+                @Html.LabelFor(model => model.Password, new { @class = "control-label" }),
+                @Html.PasswordFor(model => model.Password, new { @class="form-control", @placeholder="Пароль" }),
+                @Html.ValidationMessageFor(model => model.Password, null, new { @class = "error-message"} )
+            )
+
+            @CreateRegisterFormGroup(
+                @Html.LabelFor(model => model.ConfirmPassword, new { @class = "control-label" }),
+                @Html.PasswordFor(model => model.ConfirmPassword, new { @class="form-control", @placeholder="Повторите пароль" }),
+                @Html.ValidationMessageFor(model => model.ConfirmPassword, null, new { @class = "error-message"} )
+            )
+            
+            @CreateRegisterFormGroup(
+                @Html.LabelFor(model => model.Avatar, new { @class = "control-label" }),
+                @Html.TextBoxFor(model => model.Avatar, new { type = "file", accept = "image/*"}),
+                @Html.ValidationMessageFor(model => model.Avatar, null, new { @class = "error-message"} )
+            )
+
+            <div class="form-group">
+                <div class="center register-btn">
+                    @Html.Button("Регистрация", new { @class = "btn btn-success"} )
+                    <a href="@Url.Action("Index", "Home")"><div class="btn btn-danger">Отмена</div></a>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

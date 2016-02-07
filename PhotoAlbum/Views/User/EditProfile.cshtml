@@ -1,0 +1,116 @@
+﻿@model PhotoAlbum.Models.UserProfileModel
+@{
+    ViewBag.Title = "EditProfile";
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+@helper CreateEditFormGroup (MvcHtmlString label, params MvcHtmlString[] contents){
+    <div class="form-group row">
+        <div class="col-md-3 col-md-offset-1 register-lable">
+            @label
+        </div>
+        <div class="col-md-6 col-md-offset-1">
+            @if (contents != null)
+            {
+                foreach(var content in contents)
+                {
+                    @content
+                }
+            }
+        </div>
+    </div>
+}
+
+@section Body {
+    <div class="container profile-edit">
+        @using (Html.BeginForm("EditProfile", "User", FormMethod.Post, 
+            new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            @Html.TextBoxFor(model => model.UserId, new { hidden="hidden"})           
+            @Html.TextBoxFor(model => model.PreviousUsername, new { hidden="hidden"})
+            
+            if(@User.IsInRole("admin"))
+            {
+                <fieldset>
+                    <legend>Изменить имя пользователя</legend>
+                        @CreateEditFormGroup(
+                            @Html.LabelFor(model => model.Username, new { @class = "control-label" }),
+                            @Html.TextBoxFor(model => model.Username, new { @class="form-control", @placeholder="Имя пользователя" }),
+                            @Html.ValidationMessageFor(model => model.Username, null, new { @class = "error-message" })
+                        )
+                </fieldset>
+                <fieldset>
+                    <legend>Изменить права пользователя</legend>
+                    @{
+                        string[] allRoles = Roles.GetAllRoles();
+                    }
+                    @foreach (var role in allRoles)
+                    {
+                        string checkedState = null, disabled = null;
+                        if (role.ToUpper() == "USER")
+                        {
+                            disabled = "disabled";
+                        }
+                        if (Model.Roles != null && Model.Roles.Contains(role))
+                        {
+                            checkedState = "checked";
+                        }
+                        <div class="checkbox">
+                            <label><input id="role" name="role" value="@role" type="checkbox" @checkedState @disabled/>@role</label>
+                        </div>
+                    }
+                </fieldset>
+                <fieldset>
+                    <legend>Изменить почтовый ящик</legend>
+                    @CreateEditFormGroup(
+                        @Html.LabelFor(model => model.Email, new { @class = "control-label" }),
+                        @Html.TextBoxFor(model => model.Email, new { @class="form-control", @type="email", @placeholder="Email" }),
+                        @Html.ValidationMessageFor(model => model.Email, null, new { @class = "error-message"})
+                    )
+                </fieldset>
+            }
+            <fieldset>
+                <legend>Изменить пароль</legend>
+                @CreateEditFormGroup(
+                    @Html.LabelFor(model => model.PreviousPassword, new { @class = "control-label" }),
+                    @Html.PasswordFor(model => model.PreviousPassword, new { @class="form-control", @placeholder="Предыдущий пароль" }),
+                    @Html.ValidationMessageFor(model => model.PreviousPassword, null, new { @class = "error-message"} )
+                )
+                        
+                @CreateEditFormGroup(
+                    @Html.LabelFor(model => model.Password, new { @class = "control-label" }),
+                    @Html.PasswordFor(model => model.Password, new { @class="form-control", @placeholder="Новый пароль" }),
+                    @Html.ValidationMessageFor(model => model.Password, null, new { @class = "error-message"} )
+                )
+
+                @CreateEditFormGroup(
+                    @Html.LabelFor(model => model.ConfirmPassword, new { @class = "control-label" }),
+                    @Html.PasswordFor(model => model.ConfirmPassword, new { @class="form-control", @placeholder="Повторите пароль" }),
+                    @Html.ValidationMessageFor(model => model.ConfirmPassword, null, new { @class = "error-message"} )
+                )
+            </fieldset>
+            
+            <fieldset>
+                <legend>Изменить аватар</legend>
+                @CreateEditFormGroup(
+                    @Html.LabelFor(model => model.AvatarFile, new { @class = "control-label" }),
+                    @Html.TextBoxFor(model => model.AvatarFile, new { type = "file", accept = "image/*"}),
+                    @Html.ValidationMessageFor(model => model.AvatarFile, null, new { @class = "error-message"} )
+                )
+            </fieldset>
+
+            <div class="form-group">
+                <div class="center register-btn">
+                    @Html.Button("Сохранить", new { @class = "btn btn-success"} )
+                    <a href="@Request.UrlReferrer"><div class="btn btn-danger">Отмена</div></a>
+                </div>
+            </div>
+        }
+     </div>
+}

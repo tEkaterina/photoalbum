@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Добро пожаловать!";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@helper LoadLastPictures()
+{
+    <div class="container photoalbum">
+        <fieldset>
+            <legend style="text-align: right;">Последние фото на сайте</legend>
+            <div class="photoalbum">
+                @Html.Action("GetLastLoadedPictures", "PhotoAlbum", new { count = 8 })
+            </div>
+        </fieldset>
+    </div>
+}
+
+@if (Request.IsAuthenticated)
+{
+    @section Middle{
+        @LoadLastPictures()
+    }
+}
+else
+{
+    @section Body{
+        <div class="col-md-10 col-md-offset-1">
+            <div class="welcom">
+                <h1>Добро пожаловать на My Photoalbum!</h1>
+                @LoadLastPictures()
+            </div>
+        </div>
+    }
+}

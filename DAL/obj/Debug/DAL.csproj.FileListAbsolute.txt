@@ -1,0 +1,17 @@
+C:\Users\Panda\Desktop\PhotoAlbum\DAL\bin\Debug\DAL.dll.config
+C:\Users\Panda\Desktop\PhotoAlbum\DAL\bin\Debug\DAL.dll
+C:\Users\Panda\Desktop\PhotoAlbum\DAL\bin\Debug\DAL.pdb
+C:\Users\Panda\Desktop\PhotoAlbum\DAL\bin\Debug\DAL.Interface.dll
+C:\Users\Panda\Desktop\PhotoAlbum\DAL\bin\Debug\EntityFramework.dll
+C:\Users\Panda\Desktop\PhotoAlbum\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Panda\Desktop\PhotoAlbum\DAL\bin\Debug\LinqKit.dll
+C:\Users\Panda\Desktop\PhotoAlbum\DAL\bin\Debug\ORM.dll
+C:\Users\Panda\Desktop\PhotoAlbum\DAL\bin\Debug\DAL.Interface.pdb
+C:\Users\Panda\Desktop\PhotoAlbum\DAL\bin\Debug\ORM.pdb
+C:\Users\Panda\Desktop\PhotoAlbum\DAL\bin\Debug\EntityFramework.xml
+C:\Users\Panda\Desktop\PhotoAlbum\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Panda\Desktop\PhotoAlbum\DAL\bin\Debug\LinqKit.pdb
+C:\Users\Panda\Desktop\PhotoAlbum\DAL\bin\Debug\LinqKit.xml
+C:\Users\Panda\Desktop\PhotoAlbum\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\Panda\Desktop\PhotoAlbum\DAL\obj\Debug\DAL.dll
+C:\Users\Panda\Desktop\PhotoAlbum\DAL\obj\Debug\DAL.pdb

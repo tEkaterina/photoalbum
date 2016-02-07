@@ -1,0 +1,9 @@
+C:\Users\Panda\Desktop\PhotoAlbum\DAL.Interface\bin\Debug\DAL.Interface.dll.config
+C:\Users\Panda\Desktop\PhotoAlbum\DAL.Interface\bin\Debug\DAL.Interface.dll
+C:\Users\Panda\Desktop\PhotoAlbum\DAL.Interface\bin\Debug\DAL.Interface.pdb
+C:\Users\Panda\Desktop\PhotoAlbum\DAL.Interface\bin\Debug\EntityFramework.dll
+C:\Users\Panda\Desktop\PhotoAlbum\DAL.Interface\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Panda\Desktop\PhotoAlbum\DAL.Interface\bin\Debug\EntityFramework.xml
+C:\Users\Panda\Desktop\PhotoAlbum\DAL.Interface\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Panda\Desktop\PhotoAlbum\DAL.Interface\obj\Debug\DAL.Interface.dll
+C:\Users\Panda\Desktop\PhotoAlbum\DAL.Interface\obj\Debug\DAL.Interface.pdb

@@ -1,0 +1,13 @@
+﻿@model PhotoAlbum.Models.PictureProfileModel
+@{
+    ViewBag.Title = @Model.Name;
+}
+
+@section Middle{
+    <div class="container picture">
+        <div class="row">
+            @Html.Partial("Photo", Model)
+            @Html.Partial("PhotoDescription", Model)
+        </div>
+    </div>
+}

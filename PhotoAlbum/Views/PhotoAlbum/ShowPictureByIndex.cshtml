@@ -1,0 +1,52 @@
+﻿@model PhotoAlbum.Models.PictureProfileModel
+
+@{
+    ViewBag.Title = Model.Name;
+    
+    bool isPreviousEnabled, isNextEnabled;
+    isNextEnabled = (Model.Index + 1 < ViewBag.PicturesCount);    
+    isPreviousEnabled = (Model.Index - 1 >= 0);
+}
+
+@helper CreatePaginationButton(string cssClass, string action, IHtmlString actionText, bool isEnabled)
+{
+    if (isEnabled)
+    {
+        <li class="@cssClass">
+            <a href="@action" style="margin-left: 10px; margin-right: 10px;">
+                @actionText
+            </a>
+        </li>
+    }
+    else
+    {
+        <li class="@cssClass disabled">
+            <a href="#" style="margin-left: 10px; margin-right: 10px;">
+                @actionText
+            </a>
+        </li>
+    }
+}
+
+@section Middle{
+    <div class="container picture">
+        <div class="row">
+            @Html.Partial("Photo", Model)
+            <div class="nav-img-btn">
+                <ul class="pager">
+                    @CreatePaginationButton(
+                        "previous", 
+                        Url.Action("ShowPictureByIndex", new { index = (Model.Index-1), userId = Model.UserId}), 
+                        Html.Raw("&larr; Назад"),
+                        isPreviousEnabled)
+                    @CreatePaginationButton(
+                        "next", 
+                        Url.Action("ShowPictureByIndex", new { index = (Model.Index+1), userId = Model.UserId}), 
+                        Html.Raw("Вперед &rarr;"),
+                        isNextEnabled)
+                </ul>
+            </div>
+            @Html.Partial("PhotoDescription", Model)
+        </div>
+    </div>
+}

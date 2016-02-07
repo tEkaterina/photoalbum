@@ -1,0 +1,63 @@
+﻿@model PhotoAlbum.Models.LoginUserModel
+@{
+    ViewBag.Title = "Вход";
+    ViewBag.ShowLoginForm = false;
+}
+
+@helper AddFormElement(MvcHtmlString label, MvcHtmlString textBox, MvcHtmlString validation)
+{
+    <div class="form-group row">
+        <div class="col-md-3 col-md-offset-1 login-lable">
+            @label
+        </div>
+        <div class="col-md-6">
+            @textBox
+            @validation
+        </div>
+    </div>
+}
+
+@section Body {
+    <div class="container login">
+        @using (Html.BeginForm("Login", "Account", FormMethod.Post,
+            new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            
+            <div class="form-group center">
+                @Html.ValidationMessage("LoginResult", null, new { @class = "error-message"})
+            </div>
+            
+            @AddFormElement(
+                @Html.LabelFor(model => model.Username, new { @class = "control-label" }),
+                @Html.TextBoxFor(model => model.Username, new { @class = "form-control", @placeholder = "Имя пользователя" }),
+                @Html.ValidationMessageFor(model => model.Username, null, new { @class = "error-message" }));
+
+            @AddFormElement(
+                @Html.LabelFor(model => model.Password, new { @class = "control-label" }),
+                @Html.PasswordFor(model => model.Password, new { @class = "form-control", @placeholder = "Пароль" }),
+                @Html.ValidationMessageFor(model => model.Password, null, new { @class = "error-message" }));
+            
+            <div class="form-group row">
+                <div class="col-sm-6 col-sm-offset-4 checkbox">
+                    <label><input name="NotRememberMe" type="checkbox" value="">Чужой компьютер</label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="center">
+                    @Html.Button("Вход", new { type="submit", @class = "btn-sigin btn-sm", style="margin-right: 15px;"})
+                </div>
+            </div>
+            <div class="center">
+                @Html.Button("Регистрация", @Url.Action("Register", "Account"),
+                    FormMethod.Get, new { @class = "form-group btn btn-info btn-sm" })
+            </div>
+        }
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
